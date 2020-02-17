@@ -1,9 +1,23 @@
 {
-	"add a shebang": {
-        "prefix": "shebang",
-        "body": [
-        "#!/bin/bash"
-        ],
-        "description": "Add shebang to script"
+	"init bash file": {
+                "prefix": "shebang",
+                "body": [
+                        "#!/bin/bash",
+                        "main() {",
+                        "",
+                        "}",
+                        "main()"
+                ],
+                "description": "Init script"
+        },
+        "Author":{
+                "prefix": "myfile",
+                "body": [
+                        "##############################",
+                        "# Author: ",
+                        "##############################"
+                ],
+                "description": "Init Author"
         }
+
 }
