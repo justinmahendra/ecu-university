@@ -1,0 +1,52 @@
+{
+	"Red Colour":{
+		"prefix": "cred",
+		"body": [
+				"\\e[31m"
+		],
+		"description": "Red Colour Code"
+	},
+	"Green Colour":{
+		"prefix": "cgreen",
+		"body": [
+				"\\e[32m"
+		],
+		"description": "Green Colour Code"
+	},
+	"Blue Colour":{
+		"prefix": "cblue",
+		"body": [
+				"\\e[34m"
+		],
+		"description": "Blue Colour Code"
+	},
+	"Magenta Colour":{
+		"prefix": "cmagenta",
+		"body": [
+				"\\e[35m"
+		],
+		"description": "Magenta Colour Code"
+	},
+	"Cyan Colour":{
+		"prefix": "ccyan",
+		"body": [
+				"\\e[36m"
+		],
+		"description": "Cyan Colour Code"
+
+	},
+	"Light Grey Colour":{
+		"prefix": "clightgray",
+		"body": [
+				"\\e[37m"
+		],
+		"description": "Light Gray Colour Code"
+	},
+	"Light Cyan Colour":{
+		"prefix": "clightcyan",
+		"body": [
+				"\\e[96m"
+		],
+		"description": "Light Cyan Colour Code"
+	}
+}
