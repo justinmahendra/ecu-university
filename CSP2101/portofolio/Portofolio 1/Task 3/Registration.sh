@@ -59,8 +59,7 @@ favorite_colour_choice(){
 }
 print_output() {
     #Prints all the detail out
-    echo -e 
-    """${bash_colour}
+    echo -e """${bash_colour}
         Name\t\t: $username
         Date of Birth\t: $DoB
         Address\t\t: $address
