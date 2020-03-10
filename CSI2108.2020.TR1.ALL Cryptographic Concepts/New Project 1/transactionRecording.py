@@ -67,17 +67,18 @@ def checkFile():
     else:
         print("ERROR: This program only allows JSON List.. File must contain '[' in the begining and ']' at the end")
         quit()
-#Yes or No choices -- FIX PLS        
-def choices():
-    try:
-        reply = input("Would you like to add new transactions? (yes or no):").lower().strip()
-        # PLS FIX
-        if reply != 'yes':
-            quit()
-    except Exception as error:
-        print("Please enter valid inputs.")
-        print(error)
-        return choices()
+#Yes or No choices       
+def choices(message):
+    answer = None
+    #While user answer is not either (yes or no). Print error message and repromts user to input a valid response.
+    while answer not in ("yes", "no"):
+        answer = input(message + " Enter yes or no: ")
+        if answer == "yes":
+            return True
+        elif answer == "no":
+            return False
+        else:
+            print("Please enter yes or no.")
 #Check if blank inputs were given. If yes, generate a string of characters to fill in
 def getNonBlankInputs(message):
     text = input(message)
@@ -107,9 +108,11 @@ def main():
     try:
         while True:
             addTransaction()
-            choices()
+            if (choices("Do you want to continue adding new transaction?") == False):
+                quit()
     except KeyboardInterrupt:
         print("\nInterupt detected. Exiting program")
         quit()
-    
-main()
+
+if __name__ == "__main__":
+    main()
