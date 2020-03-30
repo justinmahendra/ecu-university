@@ -6,9 +6,10 @@ echo -e 'Student Name \t: Justin Mahendra'
 echo -e 'Student ID \t: 10526418'
 printf '=%.0s' {1..35}
 echo ''
-#Cut is used to get the fourth column in the csv file
-#CSV File was in this format | Name Height Width Area Colour | by using CUT we chose Area column using f4
-#Using --complement we select, all the other columns that is not f4.
-#printf is used to create a placeholder for corresponding items
-#by using sed we are splitting name,height,width,colour into their own placeholders
-cut -d , -f4 --complement rectangle.txt | printf "Name: %s  \tHeight: %s  \tWidth: %s \tColour: %s\n" $(sed -e 's/,/\n/g')
+#First SED will try to find every whitespace and change it into commas
+#Second SED will try to find 'Rec' and replace it with 'Name: Rec'
+#Third SED will try to find the first ',' and change it into " Height: "
+#Fourth SED will try to find the second ',' and change it into " Width: "
+#Fifth SED will try to find a patern which is comma until comma, so the area column will be subsituted with a blank
+#Six SED will try to find the fourth ',' and change to " Colour: "
+sed -e 's/ /,/g' rectangle.txt | sed -e 's/Rec/Name: Rec/g' | sed -e 's/,/ Height: /' | sed -e 's/,/ Width: /' | sed -e 's/,[^,]*/ /' | sed -e 's/,/Colour: /'
