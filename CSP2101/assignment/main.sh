@@ -22,7 +22,7 @@ function indexing_website(){
 function downloadSpecific(){
     read -p "Enter a specific image name: " value
     if [[ " ${array[@]} " =~ " ${value} " ]]; then
-        file_downloader $LINK_TO_GALLERY$temp.jpg
+        file_downloader $LINK_TO_GALLERY$value.jpg
     else
         echo "File does not exist"
     fi
@@ -40,18 +40,21 @@ function outputLogging(){
     filesize=$(cat temp/logfile | grep "Length" | sed 's/Length: //')
     echo "Downloading $image_number, with the file name $file_name, with a file size of $filesize"
 }
-
+#This function serves the purpose to create temp folder
+function startUp(){
+    mkdir temp
+}
+#This function serves the purprose to delete temp folder
+function exitCleaner(){
+    rm -r temp
+}
 function main(){
-    #file_downloader $LINK_TO_WEBSITE
+    startUp
     indexing_website
-    #downloadSpecific
-    downloadEverything
-
+    downloadSpecific
+    exitCleaner
 }
 main
-
-
-
 #UNUSED CODE
 function output_both(){
     #Displays both index and value
